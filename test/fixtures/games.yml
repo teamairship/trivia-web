@@ -1,0 +1,21 @@
+# == Schema Information
+#
+# Table name: games
+#
+#  id         :bigint           not null, primary key
+#  category   :string
+#  difficulty :integer
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  name: MyString
+  difficulty: 1
+  category: MyString
+
+two:
+  name: MyString
+  difficulty: 1
+  category: MyString
