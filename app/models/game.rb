@@ -10,6 +10,9 @@
 #  updated_at :datetime         not null
 #
 class Game < ApplicationRecord
+  has_many :players, class_name: 'Game::Player', inverse_of: :game, dependent: :destroy
+  has_many :game_questions, inverse_of: :game, dependent: :destroy
+  has_many :questions, through: :game_questions
 
   enum difficulty: {
     easy: 0,

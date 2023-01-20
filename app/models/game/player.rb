@@ -18,4 +18,12 @@
 #  index_game_players_on_user_id  (user_id)
 #
 class Game::Player < ApplicationRecord
+  belongs_to :game
+  belongs_to :user
+  has_many :answers, class_name: 'Game::Player::Answer', dependent: :destroy
+
+  enum role: {
+    participant: 0,
+    host: 10
+  }
 end

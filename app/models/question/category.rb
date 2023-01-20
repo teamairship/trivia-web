@@ -14,4 +14,6 @@
 #  index_question_categories_on_question_id  (question_id)
 #
 class Question::Category < ApplicationRecord
+  belongs_to :question
+  belongs_to :category
 end

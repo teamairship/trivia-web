@@ -20,4 +20,13 @@
 #  index_questions_on_type        (type)
 #
 class Question < ApplicationRecord
+  has_many :answers, class_name: 'Question::Answer', dependent: :destroy
+  has_many :game_questions, inverse_of: :question, dependent: :destroy
+  has_many :games, through: :game_questions
+
+  enum difficulty: {
+    easy: 0,
+    medium: 10,
+    hard: 20
+  }
 end

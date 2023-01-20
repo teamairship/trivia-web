@@ -15,4 +15,5 @@
 #  index_question_answers_on_question_id  (question_id)
 #
 class Question::Answer < ApplicationRecord
+  belongs_to :question
 end

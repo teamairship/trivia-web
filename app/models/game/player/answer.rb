@@ -7,4 +7,6 @@
 #  updated_at :datetime         not null
 #
 class Game::Player::Answer < ApplicationRecord
+  belongs_to :question_answer
+  belongs_to :game_player
 end

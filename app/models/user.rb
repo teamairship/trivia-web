@@ -19,4 +19,6 @@
 #
 class User < ApplicationRecord
   belongs_to :organization
+  has_many :players, class_name: 'Game::Player', inverse_of: :game, dependent: :destroy
+  has_many :games, through: :players
 end
