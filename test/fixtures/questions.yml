@@ -6,7 +6,6 @@
 #  difficulty :integer          not null
 #  prompt     :string           not null
 #  provider   :string           not null
-#  status     :integer          not null
 #  type       :integer          not null
 #  uid        :string           not null
 #  created_at :datetime         not null
@@ -16,7 +15,6 @@
 #
 #  index_questions_on_difficulty  (difficulty)
 #  index_questions_on_prompt      (prompt)
-#  index_questions_on_status      (status)
 #  index_questions_on_type        (type)
 #
 

@@ -25,6 +25,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_203352) do
   create_table "game_player_answers", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "question_answer_id", null: false
+    t.bigint "game_player_id", null: false
+    t.index ["game_player_id"], name: "index_game_player_answers_on_game_player_id"
+    t.index ["question_answer_id"], name: "index_game_player_answers_on_question_answer_id"
   end
 
   create_table "game_players", force: :cascade do |t|
@@ -32,7 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_203352) do
     t.datetime "updated_at", null: false
     t.bigint "game_id", null: false
     t.bigint "user_id", null: false
-    t.integer "role", null: false
+    t.integer "role", default: 0, null: false
     t.decimal "score", precision: 10, scale: 2, default: "0.0", null: false
     t.index ["game_id"], name: "index_game_players_on_game_id"
     t.index ["role"], name: "index_game_players_on_role"
@@ -43,6 +47,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_203352) do
   create_table "game_questions", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "game_id", null: false
+    t.bigint "question_id", null: false
+    t.index ["game_id"], name: "index_game_questions_on_game_id"
+    t.index ["question_id"], name: "index_game_questions_on_question_id"
   end
 
   create_table "games", force: :cascade do |t|
@@ -84,12 +92,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_16_203352) do
     t.string "prompt", null: false
     t.integer "difficulty", null: false
     t.integer "type", null: false
-    t.integer "status", null: false
     t.string "uid", null: false
     t.string "provider", null: false
     t.index ["difficulty"], name: "index_questions_on_difficulty"
     t.index ["prompt"], name: "index_questions_on_prompt"
-    t.index ["status"], name: "index_questions_on_status"
     t.index ["type"], name: "index_questions_on_type"
   end
 

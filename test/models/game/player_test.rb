@@ -3,7 +3,7 @@
 # Table name: game_players
 #
 #  id         :bigint           not null, primary key
-#  role       :integer          not null
+#  role       :integer          default("participant"), not null
 #  score      :decimal(10, 2)   default(0.0), not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
